@@ -3,14 +3,14 @@ const { Pool } = require('pg');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 5000;
-// human-marsupial-4ml308yjanrx5fef5xd99qyl.herokudns.com.
+const PORT = process.env.PORT || 3000;
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-nunjucks.configure(__dirname, { 
+nunjucks.configure(__dirname, {
     autoescape: true,
     express: app
 });
@@ -62,5 +62,5 @@ app.post("/order/:item_id", async(req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`connected to port ${PORT}`);
+    console.log(`connected to port ${PORT} in directory ${__dirname}`);
 });
