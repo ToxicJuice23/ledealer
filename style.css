@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    
+}
+
+.hidden {
+    display: none;
+}
+
+form label {
+    padding: 10px;
+    border: solid 1px rgb(105, 105, 105);
+    border-radius: 10%;
+    transition: all 0.3s;
+    margin: 5px;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form input[type="radio"]:checked + label {
+    border: solid 2px green;
+}
+
+form input[type="radio"]:hover +label {
+    border: 2px solid green;
+    cursor: pointer;
+}
+
+#all-options {
+    padding-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+html {
+    width: 100%;
+}
+
+#product-display {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#product-info {
+    padding-bottom: 15px;
+}
+
+#product-name {
+    font-size: 20px;
+    font-weight: lighter;
+    color: rgb(54, 54, 54);
+}
+
+#product-image-container {
+    padding-right: 45px;
+}
+
+#product-image {
+    padding: 1px;
+    margin-top: -15px;
+    border: 0.1px solid grey;
+}
+
+#product-price {
+    font-weight: lighter;
+    color: rgb(61, 61, 61);
+    text-decoration: underline;
+    padding-bottom: 15px;
+}
+
+#pay-button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 0%;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+body {
+    background-color: rgb(243. 243, 243);
+    text-align: center;
+}
+
+#header-bar {
+    border-bottom: 0.1px solid grey;
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-links {
+    color: black !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header-links:hover {
+    text-decoration: underline;
+}
+
+#current-page-link {
+    text-decoration: underline !important;
+    color: blue;
+}
+
+#page-title {
+    color: black;
+    font-size: 30px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none;
+}
+
+#items {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item {
+    text-align: center;
+    border: 0.5px solid grey;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+}
+
+.item_container {
+    padding-right: 60px;
+    padding-bottom: 60px;
+}
+
+.price {
+    font-weight: bolder;
+    font-family:'Times New Roman', Times, serif;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: rgb(180, 0, 0);
+    font-weight: bolder;
+}

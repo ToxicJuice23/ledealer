@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEDEALER | Payment</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" type="text/css" href="/pay.css">
+        <script>
+            $(document).ready(() => {
+                $("#spanSubmit").click(function(){
+                    $("form").submit();
+                });
+            });    
+        </script>
+    </head>
+    <body>
+        <div class="container p-0">
+            <div class="card px-4">
+                <p class="h8 py-3">Payment Details</p>
+                <form action="/pay" method="POST" id="myform">
+                    <div class="row gx-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Cardholder's Name</p>
+                                <input class="form-control mb-3" type="text" placeholder="Your Name" name="card_name">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Card Number</p>
+                                <input class="form-control mb-3" type="text" placeholder="1234 5678 435678" name="card_number">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Expiry</p>
+                                <input class="form-control mb-3" type="month" placeholder="MM/YYYY" name="expiration">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">CVV/CVC</p>
+                                <input class="form-control mb-3 pt-2 " type="password" placeholder="***" name="cvc">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Email</p>
+                                <input class="form-control mb-3 pt-2 " type="text" placeholder="you@example.com" name="email">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Pay</p>
+                                <input class="form-control mb-3 pt-2 " type="submit" value="${{ price }}">
+                            </div>
+                        </div>
+                        <span class="spacer">nothing</span>
+                    </div>
+                    <input type="text" value="{{ price }}" name="price" style="display: none;">
+                    <input type="text" value="{{ id }}" name="item_id" style="display: none;">
+                    <input type="text" value="{{ option }}" name="option" style="display: none;">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

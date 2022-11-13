@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEDEALER | Product</title>
+        <link href="/static/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                console.log("{{ options }}" + $("input:radio[name=options]:checked").val());
+                $("input:radio[name=options]").click(() => {
+                    let new_url = $("#" + $("input:radio[name=options]:checked").val() + "_image_url").text();
+                    console.log("#" + $("input:radio[name=options]:checked").val() + "_image_url");
+                    if (new_url) {
+                        console.log("changing image url to " + new_url);
+                        $("#product-image").attr("src", new_url);
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div id="header-bar">
+            <a href="/"><h1 id="page-title">LEDEALER</h1></a>
+            <a href="/"><p class="header-links">Home</p></a>
+            <a href="/all"><p class="header-links">All Products</p></a>
+            <a><p class="header-links">Contact Us</p></a>
+            <img src="/static/lens.png" height="15px" width="15px">
+        </div>
+        <div id="product-display">
+            <div id="product-image-container">
+                <img height="450px" width="450px" src="{{ item.image_url }}" id="product-image">
+            </div>
+            <div style="align-items: center; text-align: center; justify-content: center; flex-wrap: wrap; width: 400px; margin-top: -30px;">
+                <div id="product-info" style="margin: 30px;">
+                    <h2 id="product-name">{{ item.item_name }}</h2>
+                    <p id="product-price">{{ item.price }} CAD$</p>
+                    <form action="/order/{{ item.item_id }}" method="POST">
+                        <div id="all-options">
+                        {% for option in item.options %}
+                            {% if option == item.options[0] %}
+                                <div class="hidden" id="{% for x in option %}{% if x != " " %}{{ x }}{% else %}_{% endif %}{% endfor %}_image_url">{{ item.option_images[item.options.indexOf(option)] }}</div> <!-- this contains the url of the current button -->
+                                <input type="radio" value="{% for x in option %}{% if x != " " %}{{ x }}{% else %}_{% endif %}{% endfor %}" name="options" id="{{ option }}" required checked>
+                                <label for="{{ option }}">{{ option }}</label>
+                            {% else %}
+                                <div class="hidden" id="{% for x in option %}{% if x != " " %}{{ x }}{% else %}_{% endif %}{% endfor %}_image_url">{{ item.option_images[item.options.indexOf(option)] }}</div> <!-- this contains the url of the current button -->
+                                <input type="radio" value="{% for x in option %}{% if x != " " %}{{ x }}{% else %}_{% endif %}{% endfor %}" name="options" id="{{ option }}" required>
+                                <label for="{{ option }}">{{ option }}</label>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <input style="display: none;" type="text" value="{{ item.item_id }}" name="item_id">
+                        <input id="pay-button" type="submit" value="Buy Now">
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>

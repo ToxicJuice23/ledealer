@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEDEALER | All Products</title>
+        <link href="{{ name_ }}/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="header-bar">
+            <a href="/"><h1 id="page-title">LEDEALER</h1></a>
+            <a href="/"><p class="header-links">Home</p></a>
+            <a href="/"><p class="header-links" id="current-page-link">All Products</p></a>
+            <a><p class="header-links">Contact Us</p></a>
+            <div id="right-header"></div>
+                <img src="lens.png" height="15px" width="15px">
+            </div>
+        </div>
+        <h2>All Items</h2> <br>
+        <div id="items">
+            {% for item in items %}
+                <div class="item_container">
+                    <div class="item">
+                        <img src="{{ item.image_url }}" width="200px" height="200px"> <br>
+                        <a href="/products/{{ item.item_id }}">{{ item.item_name }}</a> <br>
+                        <p class="price">{{ item.price }} CAD$</p>
+                    </div>
+                </div>    
+            {% endfor %}
+        </div>
+    </body>
+</html>
