@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/static"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -14,6 +14,7 @@ nunjucks.configure(__dirname, {
     autoescape: true,
     express: app
 });
+__dirname = __dirname + "/static";
 
 const db = new Pool ({
     user: "ToxicJuice23",
